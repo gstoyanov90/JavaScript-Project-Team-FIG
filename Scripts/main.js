@@ -7,70 +7,50 @@
     sound,
     background;
 
-window.onload = init();
-
 function init() {
     canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
-    ctx = canvas.getContext('2d');
-    enemies = [];
+
+    enemies = new Enemies();
     background = new Background();
     sound = new balloonPoppingSound();
 
     var button = document.getElementById("startGame");
+    button.style.display = "none";
 
-    button.onclick = function() {
-        background = new Background();
-        mainLoop();
-        fl = 1;
-    }
+    mainLoop();
 
 }
 
 function mainLoop() {
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    clearScreen();
     sound.play();
-    generateHeads();
+
+    enemies.generate();
     render();
     update();
-    outOfBoundsCheck();
+    enemies.outOfBoundsCheck();
 
-    var loop = setTimeout('mainLoop()', 25);
+    var loop = setTimeout('mainLoop()', 50);
 }
 
 function render() {
     ctx.save();
 
     background.render(ctx);
-    for (var index = 0; index < enemies.length; index++) {
-        enemies[index].render(ctx);
-    }
+    enemies.render(ctx);
 
     ctx.restore();
 }
 
 function update() {
-    for (var index = 0; index < enemies.length; index++) {
-            enemies[index].update();
-    }
+    enemies.update();
+    enemies.incrementSpeed();
 }
 
-function outOfBoundsCheck() {
-    for (var i = 0; i < enemies.length; i++) {
-
-        if (enemies[i].y <= 0) {
-            enemies.splice(i, 1);
-        }
-    }
-}
-
-function generateHeads() {
-    if (Math.round(Math.random() * 100) < 10) {
-        var x = Math.round(Math.random() * canvasWidth - 50);
-        var y = Math.round(Math.random() * 200 + canvasHeight);
-        var speed = Math.round(Math.random() * 10 + 5);
-
-        enemies.push(new FloatingHead(x, y, speed));
-    }
+function clearScreen() {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 }

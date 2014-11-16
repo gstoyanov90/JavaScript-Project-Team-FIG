@@ -51,3 +51,7 @@
 #startGame:active{
     background-color: rgb(219, 209, 2);
 }
+
+#startGame:hover {
+    cursor: pointer;
+}
