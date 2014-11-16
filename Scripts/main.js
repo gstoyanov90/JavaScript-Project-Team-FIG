@@ -3,7 +3,8 @@
     canvas,
     enemies,
     canvasWidth,
-    canvasHeight;
+    canvasHeight,
+    sound;
 
 window.onload = init();
 
