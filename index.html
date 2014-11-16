@@ -3,12 +3,15 @@
 <head>
     <title>The revenge of the </title>
     <link href="Styles/styles.css" rel="stylesheet" />
-
 </head>
 <body>
     <div id="canvasContainer"><canvas id="canvas" width="800" height="600"></canvas></div>
-    <script src="Scripts/floatingHeads.js"></script>
-    <script src="Scripts/background.js"></script>
-    <script src="Scripts/main.js"></script>
+    <script src="Scripts/floatingHead.js"></script>
+    <audio preload="true" autoplay="false" id="balloonPopping">
+        <source src="sounds/BalloonPopping.mp3"/>
+    </audio>
+    <script src="Scripts/floatingHead.js"></script>
+    <script src="Scripts/sound.js"></script>
+	<script src="Scripts/main.js" defer></script>
 </body>
 </html>
