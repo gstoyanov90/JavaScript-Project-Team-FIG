@@ -3,7 +3,9 @@
     this.y = y;
     this.speed = speed;
     this.update = function update() {
-        this.y += speed;
+        if (y > 0) {
+            y -= speed;
+        }
     }
 
     this.render = function render(ctx) {
