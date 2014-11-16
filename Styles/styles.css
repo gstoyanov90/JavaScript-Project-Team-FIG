@@ -2,11 +2,52 @@
     background: #CCC;
 }
 
-canvas {
-    background: white;
+#canvas {
+    background-image: url('../Images/Star_Wars__Tiny_Death_Star_-_App_Trailer_-_YouTube.png'); /*to add some image with instructions!! */
 
 }
 #canvasContainer {
-    width: 300px;
+    width: 800px;
+    height: 600px;
     margin: 0 auto;
+    display:inline;
+
+}
+#startGame{
+    float:right;
+}
+.aside{
+    display:inline-block;
+    width: 300px;
+    height: 600px;
+}
+.site_container{
+    width: 100%;
+    margin:0 auto;
+}
+.instructions{
+    width:300px;
+    height: 600px;
+    display:inline-block;
+}
+#startGame{
+
+    margin:0 auto;
+    position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(5, 154, 219, 1);
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 700;
+    font-size: 2em;
+    display: block;
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0px 9px 0px rgba(39, 94, 140, 1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 250px auto;
+    width: 250px;
+    text-align: center;
+}
+#startGame:active{
+    background-color: rgb(219, 209, 2);
 }

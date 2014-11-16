@@ -15,9 +15,15 @@ function init() {
     canvasHeight = canvas.height;
     ctx = canvas.getContext('2d');
     enemies = [];
-    background = new Background();
 
-    mainLoop();
+    var button = document.getElementById("startGame");
+
+    button.onclick = function() {
+        background = new Background();
+        mainLoop();
+        fl = 1;
+    }
+
 }
 
 function mainLoop() {
