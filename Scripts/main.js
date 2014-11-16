@@ -4,7 +4,8 @@
     enemies,
     canvasWidth,
     canvasHeight,
-    sound;
+    sound,
+    background;
 
 window.onload = init();
 
@@ -14,6 +15,7 @@ function init() {
     canvasHeight = canvas.height;
     ctx = canvas.getContext('2d');
     enemies = [];
+    background = new Background();
 
     mainLoop();
 }
@@ -26,12 +28,13 @@ function mainLoop() {
     update();
     outOfBoundsCheck();
 
-    var loop = setTimeout('mainLoop()', 100);
+    var loop = setTimeout('mainLoop()', 25);
 }
 
 function render() {
     ctx.save();
 
+    background.render(ctx);
     for (var index = 0; index < enemies.length; index++) {
         enemies[index].render(ctx);
     }
@@ -55,7 +58,7 @@ function outOfBoundsCheck() {
 }
 
 function generateHeads() {
-    if (Math.round(Math.random() * 100) < 50) {
+    if (Math.round(Math.random() * 100) < 10) {
         var x = Math.round(Math.random() * canvasWidth - 50);
         var y = Math.round(Math.random() * 200 + canvasHeight);
         var speed = Math.round(Math.random() * 10 + 5);

@@ -7,7 +7,7 @@ bg.src = "skyUbackground.jpg";
 function Background() {
     this.x = 0, this.y = 0, this.w = bg.width, this.h = bg.height;
     this.render = function (ctx) {
-        ctx.drawImage(bg, this.x-=5, 0 );
+        ctx.drawImage(bg, this.x-=4, 0 );
         if(this.x <= -1975){
             this.x = 0;
         }
