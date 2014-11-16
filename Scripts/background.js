@@ -2,13 +2,13 @@
  * Created by Georgi.A.Stoyanov on 16.11.2014.
  */
 var bg = new Image();
-bg.src = "../Images/8BPimage.png";
+bg.src = "skyUbackground.jpg";
 
 function Background() {
-    this.x = 0, this.y = 0, this.w = 800px, this.h = 600px;
+    this.x = 0, this.y = 0, this.w = bg.width, this.h = bg.height;
     this.render = function (ctx) {
-        ctx.drawImage(bg, this.x--, 0 );
-        if(this.x <= -599){
+        ctx.drawImage(bg, this.x-=8, 0 );
+        if(this.x <= -1975){
             this.x = 0;
         }
     }
