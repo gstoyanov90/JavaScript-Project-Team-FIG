@@ -6,7 +6,7 @@ bg.src = "../Images/8BPimage.png";
 
 function Background() {
     this.x = 0, this.y = 0, this.w = 800px, this.h = 600px;
-    this.render = function () {
+    this.render = function (ctx) {
         ctx.drawImage(bg, this.x--, 0 );
         if(this.x <= -599){
             this.x = 0;
