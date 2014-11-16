@@ -16,13 +16,14 @@ function init() {
     ctx = canvas.getContext('2d');
     enemies = [];
     background = new Background();
+    sound = new balloonPoppingSound();
 
     mainLoop();
 }
 
 function mainLoop() {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
+    sound.play();
     generateHeads();
     render();
     update();
