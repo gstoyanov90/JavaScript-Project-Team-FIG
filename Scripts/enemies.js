@@ -40,8 +40,9 @@
     this.outOfBoundsCheck = function outOfBoundsCheck() {
         for (var i = 0; i < this.enemies.length; i++) {
 
-            if (this.enemies[i].y <= -50) {
+            if (this.enemies[i].y <= -100) {
                 this.enemies.splice(i, 1);
+                player.reduceLives();
             }
         }
     }
