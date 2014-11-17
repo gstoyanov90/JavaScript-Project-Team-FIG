@@ -6,6 +6,7 @@
     canvasWidth,
     canvasHeight,
     sound,
+    bsound,
     background,
     player,
     gameRunning;
@@ -20,7 +21,8 @@ function init() {
     enemies = new Enemies();
     background = new Background();
     player = new Player();
-    sound = new balloonPoppingSound();
+    sound = new Sound();
+    bsound = new BackgroundSound();
     gameRunning = true;
 
     button = document.getElementById("startGame");
@@ -32,8 +34,9 @@ function init() {
 
 function mainLoop() {
     clearScreen();
-    sound.play();
 
+    sound.play();
+    bsound.play();
     enemies.generate();
     render();
     update();
