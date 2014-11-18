@@ -6,7 +6,6 @@
     canvasWidth,
     canvasHeight,
     sound,
-    bsound,
     background,
     player,
     gameRunning;
@@ -22,8 +21,9 @@ function init() {
     background = new Background();
     player = new Player();
     sound = new Sound();
-    bsound = new BackgroundSound();
     gameRunning = true;
+
+    ctx.canvas.addEventListener('mousedown', mouseDown);
 
     button = document.getElementById("startGame");
     button.style.display = "none";
@@ -34,13 +34,11 @@ function init() {
 
 function mainLoop() {
     clearScreen();
-
-    sound.play();
-    bsound.play();
     enemies.generate();
     render();
     update();
     enemies.outOfBoundsCheck();
+    sound.backgroundPlay();
 
     if (gameRunning) {
         var loop = setTimeout('mainLoop()', 50);
@@ -62,7 +60,6 @@ function render() {
 function update() {
     enemies.update();
     enemies.incrementSpeed();
-    player.incrementScore(100);
 }
 
 function clearScreen() {
@@ -70,11 +67,15 @@ function clearScreen() {
 }
 
 function gameOver() {
+    sound.backgroundStop();
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     ctx.fillStyle = "white";
     ctx.font = 'bold 100px Arial';
     ctx.fillText("GAME OVER", 100, canvasHeight / 2);
+    ctx.fillStyle = "red";
+    ctx.font = 'bold 70px Arial';
+    ctx.fillText("SCORE: " + player.score, 180, canvasHeight - 200);
     button.style.display = "inline-block";
     button.innerHTML = "Try Again?"
 }

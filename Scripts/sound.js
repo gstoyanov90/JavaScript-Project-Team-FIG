@@ -2,18 +2,26 @@
  * Created by Stoilkov on 16.11.2014 г..
  */
 function Sound() {
-    this.sound = new Audio();
-    this.sound.src = "BalloonPopping.mp3";
-    this.play = function play() {
-        this.sound.play();
+    this.balloonPop = new Audio();
+    this.balloonPop.src = "Audio/BalloonPopping.mp3";
+    this.background = new Audio();
+    this.background.src = "Audio/Background.mp3";
+    this.gameOver = new Audio();
+    //this.gameOver.src = "Audio/GameOver.mp3";
+    
+    this.balloonPopPlay = function balloonPopPlay() {
+        this.balloonPop.play();
     }
-}
 
-function BackgroundSound() {
-    this.bsound = new Audio();
-    this.bsound.src = "getLucky.mp3";
-    this.bsound.loop = true;
-    this.play = function play(){
-        this.bsound.play();
+    this.backgroundPlay = function backgroundPlay() {
+        this.background.play();
+    }
+
+    this.backgroundStop = function backgroundStop() {
+        this.background.pause();
+    }
+
+    this.gameOverPlay = function gameOverPlay() {
+        this.gameOver.play();
     }
 }

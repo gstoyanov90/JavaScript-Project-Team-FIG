@@ -2,7 +2,7 @@
  * Created by Georgi.A.Stoyanov on 16.11.2014.
  */
 var bg = new Image();
-bg.src = "skyUbackground.jpg";
+bg.src = "Images/background.jpg";
 
 function Background() {
     this.x = 0, this.y = 0, this.w = bg.width, this.h = bg.height;
