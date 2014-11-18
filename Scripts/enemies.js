@@ -19,8 +19,17 @@
             var x = Math.round(Math.random() * (canvasWidth - 50));
             var y = Math.round(Math.random() * 200 + canvasHeight);
             var speed = Math.round(Math.random() * this.velocity + 2);
-
-            if (!isIntersected(x, this.enemies)) {
+			
+			// ctx.canvas.addEventListener('click', function(event){
+			// this.mouseX = event.clientX - ctx.canvas.offsetLeft;
+			// this.mouseY = event.clientY - ctx.canvas.offsetTop;
+				// if(mouseX >= x && mouseX < x+size && mouseY >= y && mouseY < y+size){
+					// this.size=0;
+					// this.speed=0;
+				// }
+			// });
+			
+			if (!isIntersected(x, this.enemies)) {
                 this.enemies.push(new FloatingHead(x, y, speed));
             }
         }
@@ -36,6 +45,8 @@
             return false;
         }
     }
+	
+	
 
     this.outOfBoundsCheck = function outOfBoundsCheck() {
         for (var i = 0; i < this.enemies.length; i++) {
