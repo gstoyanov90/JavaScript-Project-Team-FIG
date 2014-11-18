@@ -7,7 +7,7 @@ function Sound() {
     this.background = new Audio();
     this.background.src = "Audio/Background.mp3";
     this.gameOver = new Audio();
-    //this.gameOver.src = "Audio/GameOver.mp3";
+    this.gameOver.src = "Audio/GameOver.mp3";
     
     this.balloonPopPlay = function balloonPopPlay() {
         this.balloonPop.play();

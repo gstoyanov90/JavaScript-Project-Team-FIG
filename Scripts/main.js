@@ -68,14 +68,19 @@ function clearScreen() {
 
 function gameOver() {
     sound.backgroundStop();
+    sound.gameOverPlay();
+
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
     ctx.fillStyle = "white";
     ctx.font = 'bold 100px Arial';
     ctx.fillText("GAME OVER", 100, canvasHeight / 2);
+
     ctx.fillStyle = "red";
     ctx.font = 'bold 70px Arial';
-    ctx.fillText("SCORE: " + player.score, 180, canvasHeight - 200);
+    ctx.fillText("SCORE: " + Math.round(player.score), 180, canvasHeight - 200);
+
     button.style.display = "inline-block";
     button.innerHTML = "Try Again?"
 }

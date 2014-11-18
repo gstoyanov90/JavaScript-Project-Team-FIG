@@ -5,7 +5,7 @@
     this.drawStatistics = function drawStatistics(ctx) {
         ctx.fillStyle = "green";
         ctx.font = 'bold 40px Arial';
-        ctx.fillText("SCORE: " + this.score, 480, 50);
+        ctx.fillText("SCORE: " + Math.round(this.score), 480, 50);
         ctx.fillStyle = "red";
         ctx.fillText("LIVES: " + this.lives, 30, 50);
     }
