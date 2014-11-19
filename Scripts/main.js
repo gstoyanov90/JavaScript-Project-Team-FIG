@@ -29,7 +29,7 @@ function init() {
 
     button = document.getElementById("startGame");
     button.style.display = "none";
-
+    document.getElementById("canvasContainer").style.marginLeft = "200px";
     mainLoop();
 
 }
@@ -82,6 +82,8 @@ function gameOver() {
     ctx.fillStyle = "red";
     ctx.font = 'bold 70px Arial';
     ctx.fillText("SCORE: " + Math.round(player.score), 180, canvasHeight - 200);
+
+    document.getElementById("canvasContainer").style.marginLeft = "0";
 
     button.style.display = "inline-block";
     button.innerHTML = "Try Again?"
