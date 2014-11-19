@@ -9,7 +9,8 @@ body {
 }
 
 #canvas {
-    background-image: url('../Images/Star_Wars__Tiny_Death_Star_-_App_Trailer_-_YouTube.png'); /*to add some image with instructions!! */
+    background-image: url('../Images/instructions4.png'); 
+    background-size: cover;
 
 }
 #canvasContainer {
