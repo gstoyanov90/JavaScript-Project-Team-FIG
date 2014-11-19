@@ -1,5 +1,6 @@
 ﻿body {
     background: #CCC;
+    cursor: crosshair;
 }
 
 #canvas {

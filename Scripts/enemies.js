@@ -1,6 +1,6 @@
 ﻿function Enemies() {
     this.enemies = [];
-    this.velocity = 5;
+    this.velocity = 2;
 
     this.render = function render() {
         for (var index = 0; index < this.enemies.length; index++) {
@@ -15,13 +15,21 @@
     }
 
     this.generate = function generate() {
-        if (Math.round(Math.random() * 100) < 10) {
+        if (Math.round(Math.random() * 100) < 4) {
             var x = Math.round(Math.random() * (canvasWidth - 50));
             var y = Math.round(Math.random() * 200 + canvasHeight);
             var speed = Math.round(Math.random() * this.velocity + 2);
 			
-			if (!isIntersected(x, this.enemies)) {
-                this.enemies.push(new FloatingHead(x, y, speed));
+            if (!isIntersected(x, this.enemies)) {
+                var chance = Math.round(Math.random() * 100);
+
+                if (chance <= 2) {
+                    this.enemies.push(new Bonus(x, y, speed, "life"));
+                } else if (chance <= 10) {
+                    this.enemies.push(new Bonus(x, y, speed, "money"));
+                } else {
+                    this.enemies.push(new FloatingHead(x, y, speed, images.enemies[Math.round(Math.random() * 5)]));
+                }
             }
         }
 
@@ -43,13 +51,17 @@
         for (var i = 0; i < this.enemies.length; i++) {
 
             if (this.enemies[i].y <= -100) {
+
+                if (this.enemies[i].type == undefined) {
+                    player.reduceLives();
+                }
+
                 this.enemies.splice(i, 1);
-                player.reduceLives();
             }
         }
     }
 
     this.incrementSpeed = function incrementSpeed() {
-        this.velocity += 0.01;
+        this.velocity += 0.001;
     }
 }

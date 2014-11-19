@@ -7,7 +7,12 @@
             mouseY > enemies.enemies[index].y && mouseY < enemies.enemies[index].y + enemies.enemies[index].size) {
 
             sound.balloonPopPlay();
-            player.incrementScore(enemies.enemies[index].y / 2 + enemies.enemies[index].speed * 100);
+            if (enemies.enemies[index].type != undefined) {
+                enemies.enemies[index].getBonus();
+            } else {
+                player.incrementScore(enemies.enemies[index].y / 2 + enemies.enemies[index].speed * 10);
+            }
+
             enemies.enemies.splice(index, 1);
             break;
         }

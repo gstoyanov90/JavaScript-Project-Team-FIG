@@ -7,6 +7,7 @@
     canvasHeight,
     sound,
     background,
+    images,
     player,
     gameRunning;
 
@@ -18,6 +19,7 @@ function init() {
     canvasHeight = canvas.height;
 
     enemies = new Enemies();
+    images = new Images();
     background = new Background();
     player = new Player();
     sound = new Sound();
@@ -41,7 +43,7 @@ function mainLoop() {
     sound.backgroundPlay();
 
     if (gameRunning) {
-        var loop = setTimeout('mainLoop()', 50);
+        var loop = setTimeout('mainLoop()', 30);
     } else {
         gameOver();
     }
