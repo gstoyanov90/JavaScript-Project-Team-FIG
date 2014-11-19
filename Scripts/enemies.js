@@ -1,6 +1,6 @@
 ﻿function Enemies() {
     this.enemies = [];
-    this.velocity = 2;
+    this.velocity = 1;
 
     this.render = function render() {
         for (var index = 0; index < this.enemies.length; index++) {
@@ -15,10 +15,10 @@
     }
 
     this.generate = function generate() {
-        if (Math.round(Math.random() * 100) < 4) {
+        if (Math.round(Math.random() * 100) < 6) {
             var x = Math.round(Math.random() * (canvasWidth - 50));
             var y = Math.round(Math.random() * 200 + canvasHeight);
-            var speed = Math.round(Math.random() * this.velocity + 2);
+            var speed = Math.round(Math.random() * 5 + this.velocity);
 			
             if (!isIntersected(x, this.enemies)) {
                 var chance = Math.round(Math.random() * 100);
