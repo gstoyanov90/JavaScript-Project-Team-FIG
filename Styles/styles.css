@@ -3,7 +3,8 @@
     padding:0;
 }
 body {
-    background-image: url('../Images/grass-and-the-sky-background.jpg');
+    -----background-image: url('../Images/grass-and-the-sky-background.jpg');
+	background: pink;
     background-size: cover;
     cursor: crosshair;
 }

@@ -39,7 +39,6 @@ function init() {
 	// handles the display of the button
     button = document.getElementById("startGame");
     button.style.display = "none";
-    document.getElementById("canvasContainer").style.marginLeft = "200px";
 	
 	// initialises the main loop
     mainLoop();
