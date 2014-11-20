@@ -1,4 +1,6 @@
-﻿var head,
+﻿
+// the initial global variables
+var head,
     ctx,
     canvas,
     button,
@@ -11,37 +13,54 @@
     player,
     gameRunning;
 
+	// the starting point of the game
 function init() {
+	// gets the canvas information
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
 
+	// the width and height of the canvas
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
 
+	// initial objects
     enemies = new Enemies();
     images = new Images();
     background = new Background();
     player = new Player();
     sound = new Sound();
+	
+	// a boolean for checking whether the game is still running
     gameRunning = true;
 
+	// adds an event listener for the mousedown event
     ctx.canvas.addEventListener('mousedown', mouseDown);
 
+	// handles the display of the button
     button = document.getElementById("startGame");
     button.style.display = "none";
     document.getElementById("canvasContainer").style.marginLeft = "200px";
+	
+	// initialises the main loop
     mainLoop();
 
 }
 
 function mainLoop() {
+	// clears the screen
     clearScreen();
+	// generates new enemies
     enemies.generate();
+	// calls the render functions of every object in the game
     render();
+	// updates the logic of the game
     update();
+	// checks whether any enemy has got out of bounds
     enemies.outOfBoundsCheck();
+	// plays the background sound. It's epic isn't it?
     sound.backgroundPlay();
 
+	// checks whether the game has ended
     if (gameRunning) {
         var loop = setTimeout('mainLoop()', 30);
     } else {
@@ -49,6 +68,7 @@ function mainLoop() {
     }
 }
 
+// calls the render functions of every object
 function render() {
     ctx.save();
 
@@ -59,15 +79,18 @@ function render() {
     ctx.restore();
 }
 
+// updates the logic of the game
 function update() {
     enemies.update();
     enemies.incrementSpeed();
 }
 
+// clears the screen
 function clearScreen() {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 }
 
+// displays the game over screen
 function gameOver() {
     sound.backgroundStop();
     sound.gameOverPlay();
@@ -85,6 +108,7 @@ function gameOver() {
 
     document.getElementById("canvasContainer").style.marginLeft = "0";
 
+	// displays the initial buton again
     button.style.display = "inline-block";
     button.innerHTML = "Try Again?"
 }
